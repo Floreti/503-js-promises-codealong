@@ -87,9 +87,9 @@ getNewPhone()
 // refactor to async/await
 async function fetchCats() {
   try {
-    let response = await (await fetch('https://catfact.ninja/fact')).json()
-    // let responseJson = await response.json()
-    console.log(response)
+    let response = await fetch('https://catfact.ninja/fact')
+    let responseJson = await response.json()
+    console.log(responseJson)
   } catch(error) {
     console.log(error)
   }
