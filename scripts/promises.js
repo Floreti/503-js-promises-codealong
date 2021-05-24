@@ -70,20 +70,29 @@ async function getNewPhone() {
 
 getNewPhone()
 
-fetch('https://catfact.ninja/fact')
-.then(response => {
-  // step one -- jsonify response
-  return response.json()
-})
-.then(responseJson => {
-  // step two -- do something with the data
-  console.log(responseJson)
-})
-.catch(error => {
-  // oh no! problem with the fetch
-  console.log(error, 'error from fetch 👩‍🚒')
-})
+// fetch('https://catfact.ninja/fact')
+// .then(response => {
+//   // step one -- jsonify response
+//   return response.json()
+// })
+// .then(responseJson => {
+//   // step two -- do something with the data
+//   console.log(responseJson)
+// })
+// .catch(error => {
+//   // oh no! problem with the fetch
+//   console.log(error, 'error from fetch 👩‍🚒')
+// })
 
 // refactor to async/await
+async function fetchCats() {
+  try {
+    let response = await (await fetch('https://catfact.ninja/fact')).json()
+    // let responseJson = await response.json()
+    console.log(response)
+  } catch(error) {
+    console.log(error)
+  }
+}
 
-
+fetchCats()
